@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.LinkedList;
+import java.util.LinkedHashSet;
 
 public class TrainConsistApp {
 
@@ -62,8 +63,6 @@ public class TrainConsistApp {
         System.out.println("===========================================\n");
 
         LinkedList<String> trainConsist = new LinkedList<>();
-
-        // Add bogies in order
         trainConsist.addFirst("Engine");
         trainConsist.addLast("Sleeper");
         trainConsist.addLast("AC");
@@ -73,17 +72,32 @@ public class TrainConsistApp {
         System.out.println("Train Consist after adding bogies:");
         System.out.println(trainConsist + "\n");
 
-        // Insert Pantry Car at position 2
         trainConsist.add(2, "Pantry Car");
         System.out.println("After inserting Pantry Car at position 2:");
         System.out.println(trainConsist + "\n");
 
-        // Remove first and last bogie
         trainConsist.removeFirst();
         trainConsist.removeLast();
         System.out.println("After removing first and last bogie:");
         System.out.println(trainConsist + "\n");
 
-        System.out.println("UC4 operations completed successfully...");
+        System.out.println("UC4 operations completed successfully...\n");
+
+        // UC5: Preserve Insertion Order with Uniqueness
+        System.out.println("===========================================");
+        System.out.println("UC5 - Preserve Insertion Order of Bogies (LinkedHashSet)");
+        System.out.println("===========================================\n");
+
+        Set<String> trainFormation = new LinkedHashSet<>();
+        trainFormation.add("Engine");
+        trainFormation.add("Sleeper");
+        trainFormation.add("Cargo");
+        trainFormation.add("Guard");
+        trainFormation.add("Sleeper"); // duplicate ignored
+
+        System.out.println("Final Train Formation (in insertion order):");
+        System.out.println(trainFormation);
+
+        System.out.println("\nUC5 operations completed successfully...");
     }
 }
