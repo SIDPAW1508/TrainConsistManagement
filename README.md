@@ -1,11 +1,23 @@
-##  Use Case 3: Track Unique Bogie IDs (Set – HashSet)
+#  Train Consist Management App – UC4
 
-In **UC2**, bogies were stored in a `List`.  
-However, a `List` allows duplicate values, which is dangerous in a railway system.  
+##  Use Case 4: Maintain Ordered Bogie IDs (LinkedList)
+
+In **UC3**, we ensured uniqueness of bogie IDs using `HashSet`.  
+While this solved duplication, it introduced a new problem: **HashSet does not preserve order**.  
+
+A train must follow a physical sequence:
+Locomotive → Passenger → Cargo → Guard Coach
+With `HashSet`, the arrangement becomes unpredictable, which is unacceptable for real-world train formation.  
+To model this chaining behavior, we use **LinkedList**.
+
+---
 
 ##  Key Concepts
-- **HashSet** – Stores unique elements only  
-- **Set Interface** – Collection type that does not allow duplicates  
-- **add()** – Inserts values into the set  
-- **Automatic Deduplication** – Duplicates are ignored automatically  
-- **Unordered Storage** – Elements are not stored by index  
+- **LinkedList** – Doubly linked list implementation of the `List` interface  
+- **Node Structure** – Each element links to previous and next nodes  
+- **addFirst() / addLast()** – Attach bogies at the beginning or end  
+- **add(index, element)** – Insert bogies in the middle  
+- **removeFirst() / removeLast()** – Detach bogies from head or tail  
+- **Order Preservation** – Maintains physical sequence of train bogies  
+
+---
