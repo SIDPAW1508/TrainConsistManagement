@@ -1,21 +1,20 @@
-#  Train Consist Management App – UC9
+#  Train Consist Management App – UC10
 
-##  Use Case 9: Group Bogies by Type (Collectors.groupingBy)
+##  Use Case 10: Count Total Seats in Train (reduce)
 
-In **UC8**, bogies were filtered based on conditions such as seating capacity.  
-While filtering selects relevant data, the result is still a **flat list**.
+In **UC9**, bogies were organized into logical groups using `groupingBy()`.  
+While grouping structures the data, it does not provide **numerical insight**.
 
 In real railway operations, administrators often need to:
-- Separate **passenger bogies** from **goods bogies**  
-- Organize bogies by **category or class**  
-- Produce **structured reports** instead of raw lists  
+- Know the **total seating capacity** of the train  
+- Estimate **passenger handling capability**  
+- Perform **utilization planning**  
 
-With only filtering:
--  Data is not categorized  
--  Reporting becomes difficult  
--  Relationships between bogies are not visible  
+With only grouped lists:
+-  No total metrics are available  
+-  No aggregation is performed  
+-  Decision-making lacks quantitative support  
 
-To solve this, we use **Collectors.groupingBy()** to group bogies into categories.
+To compute meaningful values, we introduce aggregation using **reduce()**.
 
 ---
-
