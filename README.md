@@ -1,28 +1,28 @@
-#  Train Consist Management App – UC6
+#  Train Consist Management App – UC8
 
-##  Use Case 6: Map Bogie to Capacity (HashMap)
+##  Use Case 8: Filter Passenger Bogies Using Streams
 
-In **UC5**, the train formation stored only the names of bogies in order and ensured uniqueness.  
-However, a real railway system does not operate using names alone. Each bogie has important operational attributes such as:
+In **UC7**, bogies were sorted based on seating capacity using `Comparator`.  
+While sorting organizes data, it does not allow the system to **select specific bogies based on conditions**.
 
-- Seating capacity for passenger bogies  
-- Load capacity for goods bogies  
-- Safety limits and constraints  
+In real railway operations, administrators often need to:
+- Display only **high-capacity bogies**  
+- Exclude **low-capacity or special-purpose bogies**  
+- Apply **business rules dynamically**  
 
-With only a `Set` of strings:
--  No way to associate data with a bogie  
--  Capacity information cannot be stored  
--  The system cannot perform analytics or validation  
+Using traditional loops:
+-  Code becomes verbose and imperative  
+-  Logic is mixed with iteration  
+-  Harder to read and maintain  
 
-To solve this, we use a **HashMap** to associate bogie names with their capacities.
-
----
+To express filtering logic clearly and concisely, we introduce the **Java Stream API**.
 
 
-## Key Concepts
-- **HashMap** – Stores data in key–value pairs  
-- **Map Interface** – Represents a mapping between unique keys and values  
-- **put()** – Inserts a key–value pair (bogie → capacity)  
-- **Key–Value Association** – Models real-world relationships (e.g., `"Sleeper" → 72 seats`)  
-- **entrySet() Iteration** – Allows iteration over both keys and values  
-- **Fast Lookup** – Retrieve capacity in constant time using bogie name  
+## 🛠️ Key Concepts
+- **Stream API** – Processes collections in a declarative style  
+- **stream() Method** – Converts a collection into a stream pipeline  
+- **filter() Operation** – Selects elements that satisfy a condition (e.g., capacity > 60)  
+- **Lambda Expressions** – Concise behavior definition for filtering logic  
+- **collect() / toList()** – Converts the processed stream back into a collection  
+- **Declarative Programming Style** – Focuses on *what* to do, not *how* to iterate  
+

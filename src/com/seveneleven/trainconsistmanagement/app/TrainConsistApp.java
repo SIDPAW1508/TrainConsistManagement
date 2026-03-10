@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.LinkedList;
 import java.util.LinkedHashSet;
 import java.util.HashMap;
@@ -118,5 +119,27 @@ public class TrainConsistApp {
         }
 
         System.out.println("\nUC6 operations completed successfully...");
+        System.out.println("===========================================");
+        System.out.println("UC8 - Filter Passenger Bogies Using Streams");
+        System.out.println("===========================================\n");
+
+        // Create bogie objects
+        List<Bogie> bogies = new ArrayList<>();
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 56));
+        bogies.add(new Bogie("First Class", 24));
+
+        System.out.println("All Bogies:");
+        bogies.forEach(System.out::println);
+
+        // Filter bogies with capacity > 60 using Stream API
+        List<Bogie> highCapacityBogies = bogies.stream()
+                                               .filter(b -> b.getCapacity() > 60)
+                                               .collect(Collectors.toList());
+
+        System.out.println("\nFiltered Bogies (Capacity > 60):");
+        highCapacityBogies.forEach(System.out::println);
+
+        System.out.println("\nUC8 operations completed successfully...");
     }
 }
