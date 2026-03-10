@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.LinkedList;
 import java.util.LinkedHashSet;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TrainConsistApp {
 
@@ -98,6 +100,23 @@ public class TrainConsistApp {
         System.out.println("Final Train Formation (in insertion order):");
         System.out.println(trainFormation);
 
-        System.out.println("\nUC5 operations completed successfully...");
+        System.out.println("\nUC5 operations completed successfully...\n");
+
+        // UC6: Map Bogie to Capacity
+        System.out.println("===========================================");
+        System.out.println("UC6 - Map Bogie to Capacity (HashMap)");
+        System.out.println("===========================================\n");
+
+        Map<String, Integer> bogieCapacity = new HashMap<>();
+        bogieCapacity.put("Sleeper", 72);
+        bogieCapacity.put("AC Chair", 56);
+        bogieCapacity.put("First Class", 24);
+
+        System.out.println("Bogie Capacity Details:");
+        for (Map.Entry<String, Integer> entry : bogieCapacity.entrySet()) {
+            System.out.println(entry.getKey() + " → " + entry.getValue() + " seats");
+        }
+
+        System.out.println("\nUC6 operations completed successfully...");
     }
 }
