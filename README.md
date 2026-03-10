@@ -1,20 +1,26 @@
-#  Train Consist Management App – UC10
+# 🚂 Train Consist Management App – UC11
 
-##  Use Case 10: Count Total Seats in Train (reduce)
+## 📚 Use Case 11: Validate Train ID & Cargo Codes (Regex)
 
-In **UC9**, bogies were organized into logical groups using `groupingBy()`.  
-While grouping structures the data, it does not provide **numerical insight**.
+In **UC10**, the system successfully calculates total seating capacity.  
+However, all previous use cases assume that the input data is already valid and well-formed.
 
-In real railway operations, administrators often need to:
-- Know the **total seating capacity** of the train  
-- Estimate **passenger handling capability**  
-- Perform **utilization planning**  
+In real railway systems, user input can be:
+- Incorrectly formatted  
+- Inconsistent with business rules  
+- Prone to human error  
 
-With only grouped lists:
--  No total metrics are available  
--  No aggregation is performed  
--  Decision-making lacks quantitative support  
+For example:
+- ✔ Valid Train ID: `TRN-1234`  
+- ❌ Invalid Train ID: `TRAIN12`, `TRN12A`, `1234-TRN`  
 
-To compute meaningful values, we introduce aggregation using **reduce()**.
 
----
+## 🛠️ Key Concepts
+- **Regular Expressions (Regex)** – Enforce structure rules such as `TRN-1234`  
+- **Pattern Class** – Represents a compiled regex pattern  
+- **Matcher Class** – Applies a pattern to input strings  
+- **matches() Method** – Verifies whether the entire input string conforms to the regex  
+- **Format Enforcement** – Ensures Train IDs and Cargo Codes follow strict rules  
+- **Data Integrity Validation** – Prevents malformed data from entering the system  
+
+
