@@ -1,6 +1,7 @@
 package com.seveneleven.trainconsistmanagement.app;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
@@ -118,5 +119,30 @@ public class TrainConsistApp {
         }
 
         System.out.println("\nUC6 operations completed successfully...");
+        
+        System.out.println("===========================================");
+        System.out.println("UC7 - Sort Bogies by Capacity (Comparator)");
+        System.out.println("===========================================\n");
+
+        // Create bogie objects
+        List<Bogie> bogies = new ArrayList<>();
+        bogies.add(new Bogie("Sleeper", 72));
+        
+        bogies.add(new Bogie("First Class", 24));
+        bogies.add(new Bogie("AC Chair", 56));
+
+        System.out.println("Before Sorting:");
+        for (Bogie b : bogies) {
+            System.out.println(b);
+        }
+
+        // Sort using Comparator (by capacity)
+        bogies.sort(Comparator.comparingInt(Bogie::getCapacity).reversed());
+
+        System.out.println("\nAfter Sorting by Capacity (Descending):");
+        for (Bogie b : bogies) {
+            System.out.println(b);
+        }
+        System.out.println("\nUC7 operations completed successfully...");
     }
 }
