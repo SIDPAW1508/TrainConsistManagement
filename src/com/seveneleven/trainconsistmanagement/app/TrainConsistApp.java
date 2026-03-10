@@ -2,6 +2,8 @@ package com.seveneleven.trainconsistmanagement.app;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TrainConsistApp {
 
@@ -19,27 +21,42 @@ public class TrainConsistApp {
         System.out.println("UC2 - Add Passenger Bogies to Train");
         System.out.println("===========================================\n");
 
-        // Add bogies
         passengerBogies.add("Sleeper");
         passengerBogies.add("AC Chair");
         passengerBogies.add("First Class");
         System.out.println("After Adding Bogies:");
         System.out.println("Passenger Bogies : " + passengerBogies + "\n");
 
-        // Remove one bogie
         passengerBogies.remove("AC Chair");
         System.out.println("After Removing 'AC Chair':");
         System.out.println("Passenger Bogies : " + passengerBogies + "\n");
 
-        // Check existence
         boolean hasSleeper = passengerBogies.contains("Sleeper");
         System.out.println("Checking if 'Sleeper' exists:");
         System.out.println("Contains Sleeper? : " + hasSleeper + "\n");
 
-        // Final state
         System.out.println("Final Train Passenger Consist:");
         System.out.println(passengerBogies + "\n");
 
-        System.out.println("UC2 operations completed successfully...");
+        System.out.println("UC2 operations completed successfully...\n");
+
+        // UC3: Track Unique Bogie IDs
+        System.out.println("===========================================");
+        System.out.println("UC3 - Track Unique Bogie IDs (HashSet)");
+        System.out.println("===========================================\n");
+
+        Set<String> bogieIds = new HashSet<>();
+
+        // Add bogie IDs (including duplicates)
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+        bogieIds.add("BG103");
+        bogieIds.add("BG101"); // duplicate
+        bogieIds.add("BG102"); // duplicate
+
+        // Display final set
+        System.out.println("Final Bogie IDs (unique only): " + bogieIds);
+
+        System.out.println("\nUC3 operations completed successfully...");
     }
 }
