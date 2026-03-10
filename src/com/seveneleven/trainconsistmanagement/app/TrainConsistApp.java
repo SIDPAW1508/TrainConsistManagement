@@ -6,19 +6,40 @@ import java.util.List;
 public class TrainConsistApp {
 
     public static void main(String[] args) {
-        // Welcome message
         System.out.println("=== Train Consist Management App ===");
 
-        // Initialize an empty train consist using ArrayList
-        List<String> trainConsist = new ArrayList<>();
+        // UC1: Initialize Train
+        List<String> passengerBogies = new ArrayList<>();
+        System.out.println("Initial bogie count: " + passengerBogies.size());
+        System.out.println("Current Train Consist: " + passengerBogies);
+        System.out.println("Train initialized successfully. Ready for operations!\n");
 
-        // Display initial bogie count
-        System.out.println("Initial bogie count: " + trainConsist.size());
+        // UC2: Add Passenger Bogies
+        System.out.println("===========================================");
+        System.out.println("UC2 - Add Passenger Bogies to Train");
+        System.out.println("===========================================\n");
 
-        // Display the current train consist (empty list at startup)
-        System.out.println("Current Train Consist: " + trainConsist);
+        // Add bogies
+        passengerBogies.add("Sleeper");
+        passengerBogies.add("AC Chair");
+        passengerBogies.add("First Class");
+        System.out.println("After Adding Bogies:");
+        System.out.println("Passenger Bogies : " + passengerBogies + "\n");
 
-        // Program continues...
-        System.out.println("Train initialized successfully. Ready for operations!");
+        // Remove one bogie
+        passengerBogies.remove("AC Chair");
+        System.out.println("After Removing 'AC Chair':");
+        System.out.println("Passenger Bogies : " + passengerBogies + "\n");
+
+        // Check existence
+        boolean hasSleeper = passengerBogies.contains("Sleeper");
+        System.out.println("Checking if 'Sleeper' exists:");
+        System.out.println("Contains Sleeper? : " + hasSleeper + "\n");
+
+        // Final state
+        System.out.println("Final Train Passenger Consist:");
+        System.out.println(passengerBogies + "\n");
+
+        System.out.println("UC2 operations completed successfully...");
     }
 }

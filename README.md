@@ -1,33 +1,22 @@
-#  Train Consist Management App
+#  Train Consist Management App – UC2
 
-A console-based Java application that simulates how a railway system manages a train’s consist — the collection of bogies attached to an engine.  
-
-This project introduces core Java concepts through realistic railway scenarios.
-
----
-
-##  Features
-- Passenger Bogies: Sleeper, AC Chair, First Class (with seat capacity tracking)  
-- Goods Bogies: Rectangular, Cylindrical (with cargo type and safety constraints)  
-- Train Consist Tracking: Composition, capacity, cargo types, and safety compliance  
+##  Use Case 2: Add Passenger Bogies to Train
+In **UC1**, the train consist was initialized but empty (`[]`).  
+**UC2** introduces dynamic operations on the train consist using **ArrayList** to simulate attaching and detaching passenger bogies.
 
 ---
 
-##  Use Cases
-### UC1: Initialize Train and Display Consist Summary
-- Prints welcome message  
-- Initializes an empty train consist using `ArrayList`  
-- Displays bogie count and current consist (`[]`)  
-
-Future use cases will add bogies dynamically and enforce safety rules.
+##  Goal
+Allow dynamic insertion, removal, and inspection of passenger bogies using `ArrayList`.
 
 ---
 
-##  Key Java Concepts
-- **Class**: Encapsulates train app logic  
-- **Main Method**: Entry point (`public static void main(String[] args)`)  
-- **Static Keyword**: Allows JVM to invoke `main()` without an object  
-- **ArrayList & List Interface**: Dynamic collection for bogies  
-- **Console Output**: `System.out.println()` for messages and summaries  
+##  Key Concepts
+- **ArrayList** – Resizable collection that supports runtime modifications  
+- **add()** – Insert bogies into the list  
+- **remove()** – Delete bogies from the list  
+- **contains()** – Check if a bogie exists in the list  
+- **Insertion Order Preservation** – Bogies remain in the order they were added  
+- **CRUD Operations** – Create, Read, Update, Delete on train consist  
 
 ---
