@@ -1,28 +1,21 @@
-#  Train Consist Management App – UC8
+#  Train Consist Management App – UC9
 
-##  Use Case 8: Filter Passenger Bogies Using Streams
+##  Use Case 9: Group Bogies by Type (Collectors.groupingBy)
 
-In **UC7**, bogies were sorted based on seating capacity using `Comparator`.  
-While sorting organizes data, it does not allow the system to **select specific bogies based on conditions**.
+In **UC8**, bogies were filtered based on conditions such as seating capacity.  
+While filtering selects relevant data, the result is still a **flat list**.
 
 In real railway operations, administrators often need to:
-- Display only **high-capacity bogies**  
-- Exclude **low-capacity or special-purpose bogies**  
-- Apply **business rules dynamically**  
+- Separate **passenger bogies** from **goods bogies**  
+- Organize bogies by **category or class**  
+- Produce **structured reports** instead of raw lists  
 
-Using traditional loops:
--  Code becomes verbose and imperative  
--  Logic is mixed with iteration  
--  Harder to read and maintain  
+With only filtering:
+-  Data is not categorized  
+-  Reporting becomes difficult  
+-  Relationships between bogies are not visible  
 
-To express filtering logic clearly and concisely, we introduce the **Java Stream API**.
+To solve this, we use **Collectors.groupingBy()** to group bogies into categories.
 
-
-## 🛠️ Key Concepts
-- **Stream API** – Processes collections in a declarative style  
-- **stream() Method** – Converts a collection into a stream pipeline  
-- **filter() Operation** – Selects elements that satisfy a condition (e.g., capacity > 60)  
-- **Lambda Expressions** – Concise behavior definition for filtering logic  
-- **collect() / toList()** – Converts the processed stream back into a collection  
-- **Declarative Programming Style** – Focuses on *what* to do, not *how* to iterate  
+---
 

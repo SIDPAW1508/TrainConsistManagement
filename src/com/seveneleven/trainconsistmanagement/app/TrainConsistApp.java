@@ -1,6 +1,7 @@
 package com.seveneleven.trainconsistmanagement.app;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
@@ -119,20 +120,34 @@ public class TrainConsistApp {
         }
 
         System.out.println("\nUC6 operations completed successfully...");
+        System.out.println("===========================================");// UC7: Sort Bogies by Capacity
         System.out.println("===========================================");
-        System.out.println("UC8 - Filter Passenger Bogies Using Streams");
+        System.out.println("UC7 - Sort Bogies by Capacity (Comparator)");
         System.out.println("===========================================\n");
 
-        // Create bogie objects
         List<Bogie> bogies = new ArrayList<>();
         bogies.add(new Bogie("Sleeper", 72));
         bogies.add(new Bogie("AC Chair", 56));
         bogies.add(new Bogie("First Class", 24));
 
+        System.out.println("Before Sorting:");
+        bogies.forEach(System.out::println);
+
+        bogies.sort(Comparator.comparingInt(Bogie::getCapacity).reversed());
+
+        System.out.println("\nAfter Sorting by Capacity (Descending):");
+        bogies.forEach(System.out::println);
+
+        System.out.println("\nUC7 operations completed successfully...\n");
+
+        // UC8: Filter Passenger Bogies Using Streams
+        System.out.println("===========================================");
+        System.out.println("UC8 - Filter Passenger Bogies Using Streams");
+        System.out.println("===========================================\n");
+
         System.out.println("All Bogies:");
         bogies.forEach(System.out::println);
 
-        // Filter bogies with capacity > 60 using Stream API
         List<Bogie> highCapacityBogies = bogies.stream()
                                                .filter(b -> b.getCapacity() > 60)
                                                .collect(Collectors.toList());
@@ -140,6 +155,29 @@ public class TrainConsistApp {
         System.out.println("\nFiltered Bogies (Capacity > 60):");
         highCapacityBogies.forEach(System.out::println);
 
-        System.out.println("\nUC8 operations completed successfully...");
+        System.out.println("\nUC8 operations completed successfully...\n");
+
+        // UC9: Group Bogies by Type
+        System.out.println("===========================================");
+        System.out.println("UC9 - Group Bogies by Type (Collectors.groupingBy)");
+        System.out.println("===========================================\n");
+
+        // Add some Goods bogies to the same list
+        bogies.add(new Bogie("Cargo-1", "Goods", 100));
+        bogies.add(new Bogie("Cargo-2", "Goods", 120));
+
+        System.out.println("All Bogies:");
+        bogies.forEach(System.out::println);
+
+        Map<String, List<Bogie>> groupedBogies = bogies.stream()
+                                                       .collect(Collectors.groupingBy(Bogie::getType));
+
+        System.out.println("\nGrouped Bogies by Type:");
+        groupedBogies.forEach((type, list) -> {
+            System.out.println(type + ":");
+            list.forEach(System.out::println);
+        });
+
+        System.out.println("\nUC9 operations completed successfully...");
     }
 }
