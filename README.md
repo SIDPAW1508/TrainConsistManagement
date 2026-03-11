@@ -1,28 +1,35 @@
-#  Train Consist Management App – UC12
+#  Train Consist Management App – UC13
 
-## Use Case 12: Safety Compliance Check for Goods Bogies
+##  Use Case 13: Performance Comparison (Loops vs Streams)
 
-In **UC11**, the system validated Train IDs and Cargo Codes using Regex.  
-However, all previous use cases assumed that cargo assignments were always valid.  
+In **UC12**, the system used Java Streams to validate safety rules in a clean and declarative way.  
+While streams improve readability, many developers assume they are always faster than traditional loops.
 
-In real railway logistics, this is dangerous:
-- Certain bogie shapes are designed only for specific cargo.  
-- Cylindrical bogies are meant for **liquids like petroleum**.  
-- Assigning wrong cargo can cause leaks, fire hazards, or derailment risks.  
+In real systems, performance matters because:
+- Trains may have **thousands of bogies** in data sets  
+- Validation and filtering may run **frequently**  
+- Inefficient logic can **slow down operations**  
 
-Without validation:
-- Unsafe cargo may enter the system  
-- Business rules are violated silently  
-- Train formation becomes operationally risky  
+Without measurement:
+-  Developers guess performance instead of proving it  
+-  Optimization decisions become unreliable  
+-  The system may choose elegance over efficiency blindly  
+
+For example:  
+A **stream pipeline** looks modern, but a **simple loop** might be faster in some scenarios.  
+
+To make informed choices, we must measure execution time, not assume it.  
+This introduces performance benchmarking using **System.nanoTime()**.
 
 ---
 
 
-##  Key Concepts
-- **Streams API** – Declarative way to process collections  
-- **allMatch()** – Checks if every element satisfies a condition  
-- **Lambda Expressions** – Express validation rules inline  
-- **Conditional Logic in Streams** – Enforces domain-specific constraints  
-- **Short-Circuit Evaluation** – Stops processing as soon as a rule fails  
-- **Business Rule Modeling** – Converts safety policies into executable logic  
+## 🛠️ Key Concepts
+- **System.nanoTime()** – High-resolution time measurement for benchmarking  
+- **Performance Benchmarking** – Evaluates execution time of code blocks  
+- **Loop-Based Processing** – Traditional iteration using `for` loops  
+- **Stream-Based Processing** – Declarative iteration using Stream API  
+- **Micro-Measurement Awareness** – Precise timing for small code sections  
+- **Evidence-Driven Optimization** – Decisions based on measured results  
 
+---

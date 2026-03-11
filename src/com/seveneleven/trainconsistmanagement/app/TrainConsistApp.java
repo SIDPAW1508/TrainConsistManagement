@@ -260,5 +260,43 @@ public class TrainConsistApp {
         }
 
         System.out.println("\nUC12 operations completed successfully...");
+        
+        System.out.println("===========================================");
+        System.out.println("UC13 - Performance Comparison (Loops vs Streams)");
+        System.out.println("===========================================\n");
+
+        // Prepare test data
+        List<Bogie> bogies = new ArrayList<>();
+        for (int i = 1; i <= 10000; i++) {
+            bogies.add(new Bogie("Bogie-" + i, i % 100 + 20)); // capacities between 20–119
+        }
+
+        // Loop-based filtering
+        long startLoop = System.nanoTime();
+        List<Bogie> highCapacityLoop = new ArrayList<>();
+        for (Bogie b : bogies) {
+            if (b.getCapacity() > 60) {
+                highCapacityLoop.add(b);
+            }
+        }
+        long endLoop = System.nanoTime();
+        long loopDuration = endLoop - startLoop;
+
+        // Stream-based filtering
+        long startStream = System.nanoTime();
+        List<Bogie> highCapacityStream = bogies.stream()
+                                               .filter(b -> b.getCapacity() > 60)
+                                               .collect(Collectors.toList());
+        long endStream = System.nanoTime();
+        long streamDuration = endStream - startStream;
+
+        // Results
+        System.out.println("Loop-based filtering found " + highCapacityLoop.size() + " bogies.");
+        System.out.println("Execution time (Loop): " + loopDuration + " ns");
+
+        System.out.println("\nStream-based filtering found " + highCapacityStream.size() + " bogies.");
+        System.out.println("Execution time (Stream): " + streamDuration + " ns");
+
+        System.out.println("\nUC13 operations completed successfully...");
 	}
 }
