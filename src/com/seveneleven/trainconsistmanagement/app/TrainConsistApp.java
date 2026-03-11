@@ -235,5 +235,30 @@ public class TrainConsistApp {
 		} else {
 			System.out.println(label + " '" + input + "' is INVALID.");
 		}
+		System.out.println("===========================================");
+        System.out.println("UC12 - Safety Compliance Check for Goods Bogies");
+        System.out.println("===========================================\n");
+
+        // Prepare goods bogies
+        List<GoodsBogie> goodsBogies = new ArrayList<>();
+        goodsBogies.add(new GoodsBogie("Cylindrical", "Petroleum")); // valid
+        goodsBogies.add(new GoodsBogie("Box", "Coal"));              // valid
+        goodsBogies.add(new GoodsBogie("Cylindrical", "Coal"));      // invalid
+
+        System.out.println("Goods Bogies:");
+        goodsBogies.forEach(System.out::println);
+
+        // Safety compliance check
+        boolean isSafe = goodsBogies.stream()
+            .allMatch(b -> !(b.getShape().equals("Cylindrical") && !b.getCargo().equals("Petroleum")));
+
+        System.out.println("\nSafety Compliance Result:");
+        if (isSafe) {
+            System.out.println("✅ Train formation is SAFE.");
+        } else {
+            System.out.println("❌ Train formation is NOT SAFE. Invalid cargo assignment detected.");
+        }
+
+        System.out.println("\nUC12 operations completed successfully...");
 	}
 }
