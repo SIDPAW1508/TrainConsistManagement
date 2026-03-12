@@ -1,30 +1,33 @@
-# UC17 – Sort Bogie Names Using Arrays.sort()
+# UC18 – Linear Search for Bogie ID
 
-UC17 demonstrates sorting **bogie type names alphabetically** using Java’s built-in `Arrays.sort()` method.
+UC18 demonstrates searching for a **specific bogie ID** using the **Linear Search algorithm**.
 
-Unlike **UC16**, where **Bubble Sort** was implemented manually, this use case uses Java’s **optimized library sorting algorithm** to make the code **faster, simpler, and more maintainable**.
+This approach works even when the **list of bogie IDs is unsorted**, making it simple and flexible for basic search operations.
 
 ---
 
 ## Flow
 
-1. User provides an **array of bogie type names**.
-2. System calls `Arrays.sort()` on the array.
-3. Java internally **sorts the values alphabetically**.
-4. Sorted bogie names are displayed using `Arrays.toString()`.
-5. Program continues execution.
+1. User provides a **list of bogie IDs**.
+2. A **bogie ID** is selected as the **search key**.
+3. The system **traverses the array sequentially**.
+4. Each element is compared using `equals()`.
+5. If a **match is found**, the search stops and the **position is displayed**.
+6. If no match exists, the system reports that the **bogie was not found**.
 
 ---
 
 ## Concepts Used
 
-- `Arrays.sort()` (built-in sorting utility)
-- Natural ordering of **Strings** (alphabetical sorting)
-- **Standard library optimization**
-- **Cleaner and more readable code**
+- Linear Search Algorithm  
+- Sequential traversal of arrays  
+- String comparison using `equals()`  
+- Early termination when a match is found  
 
 ---
 
 ## Purpose
 
-This use case demonstrates how **production systems rely on optimized library methods** instead of implementing manual sorting algorithms for common operations like sorting.
+This use case introduces **basic searching logic**, helping build understanding of **how search operations work internally**.
+
+It also prepares the system for **more optimized search techniques in later implementations**.
