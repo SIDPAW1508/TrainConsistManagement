@@ -1,47 +1,38 @@
-# UC15 – Safe Cargo Assignment (try-catch-finally)
+# UC16 – Sort Passenger Bogies by Capacity (Bubble Sort)
 
-UC15 demonstrates **runtime exception handling** for unsafe cargo assignments in the **Train Consist Management App**.
+UC16 demonstrates **manual sorting** using the **Bubble Sort algorithm** instead of built-in Java methods like `Collections.sort()` or `Arrays.sort()`.
 
-Instead of stopping execution during object creation (as in **UC14**), this use case handles errors that occur during **runtime operations**.
-
----
-
-## Key Idea
-
-If **Petroleum** is assigned to a **Rectangular bogie**, the system throws a custom runtime exception called:
-
-`CargoSafetyException`
-
-The exception is handled using **try-catch-finally**, ensuring the application **does not crash** and continues running safely.
+This use case helps understand how sorting works internally by **comparing and swapping adjacent values** until the array becomes sorted.
 
 ---
 
 ## Flow
 
-1. User attempts to assign cargo to a **goods bogie**.
-2. System checks **shape and cargo compatibility**.
-3. If unsafe, a **CargoSafetyException** is thrown.
-4. The exception is **caught** and an **error message** is displayed.
-5. The **finally block** runs logging or cleanup operations.
-6. The **program continues execution**.
+1. User provides **passenger bogie capacities**.
+2. System stores capacities in an **array**.
+3. **Adjacent elements are compared**.
+4. If elements are **out of order**, values are **swapped**.
+5. **Multiple passes** continue until the array becomes sorted.
+6. **Sorted capacities** are displayed.
 
 ---
 
 ## Concepts Used
 
-- Custom Runtime Exception
-- `throw` keyword
-- `try-catch-finally`
-- Runtime validation
+- Bubble Sort Algorithm  
+- Nested Loops  
+- Array Manipulation  
+- Swapping Logic  
+- Algorithm Fundamentals  
 
 ---
 
 ## Purpose
 
-This mechanism ensures:
+This use case helps build:
 
-- **Safe cargo handling**
-- **Stable program execution**
-- **Proper runtime error management**
+- **Algorithmic thinking**
+- Understanding of **sorting mechanics**
+- Knowledge of how **sorting works internally**
 
-Even if an unsafe cargo assignment occurs, the system **handles the error gracefully without stopping the application**.
+before using high-level Java sorting utilities.

@@ -383,6 +383,34 @@ public class TrainConsistApp {
        System.out.println("\nFinal Bogie State:");
        System.out.println(goodsBogie);
        System.out.println("\nUC15 operations completed successfully...");
+    // UC16
+       System.out.println("===========================================");
+       System.out.println("UC16 - Sort Passenger Bogies by Capacity (Bubble Sort)");
+       System.out.println("===========================================\n");
+       // Passenger bogie capacities
+       int[] capacities = {72, 56, 24, 80, 60};
+       System.out.println("Original Passenger Bogie Capacities:");
+       for (int c : capacities) {
+          System.out.print(c + " ");
+       }
+       System.out.println("\n");
+       // Bubble Sort Algorithm
+       for (int i = 0; i < capacities.length - 1; i++) {
+          for (int j = 0; j < capacities.length - i - 1; j++) {
+              if (capacities[j] > capacities[j + 1]) {
+                  // swap
+                  int temp = capacities[j];
+                  capacities[j] = capacities[j + 1];
+                  capacities[j + 1] = temp;
+              }
+          }
+       }
+       // Display sorted result
+       System.out.println("Sorted Passenger Bogie Capacities:");
+       for (int c : capacities) {
+          System.out.print(c + " ");
+       }
+       System.out.println("\n\nUC16 operations completed successfully...");
 
    }
 
