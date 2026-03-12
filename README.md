@@ -1,35 +1,37 @@
-#  Train Consist Management App – UC13
+#  Train Consist Management App – UC14
 
-##  Use Case 13: Performance Comparison (Loops vs Streams)
+##  Use Case 14: Handle Invalid Bogie Capacity (Custom Exception)
 
-In **UC12**, the system used Java Streams to validate safety rules in a clean and declarative way.  
-While streams improve readability, many developers assume they are always faster than traditional loops.
+In **UC13**, the system focused on performance comparison, but it assumed all data was valid.  
+In real railway systems, invalid input can easily enter the system, such as:
+- Negative seat capacity  
+- Zero capacity bogies  
+- Corrupted configuration values  
 
-In real systems, performance matters because:
-- Trains may have **thousands of bogies** in data sets  
-- Validation and filtering may run **frequently**  
-- Inefficient logic can **slow down operations**  
+If such values are allowed:
+-  Passenger allocation becomes meaningless  
+-  Safety and reporting break down  
+-  Bugs propagate silently through later use cases  
 
-Without measurement:
--  Developers guess performance instead of proving it  
--  Optimization decisions become unreliable  
--  The system may choose elegance over efficiency blindly  
-
-For example:  
-A **stream pipeline** looks modern, but a **simple loop** might be faster in some scenarios.  
-
-To make informed choices, we must measure execution time, not assume it.  
-This introduces performance benchmarking using **System.nanoTime()**.
+Without validation, the train consist may contain bogies that can never carry passengers.  
+Instead of allowing bad data and fixing it later, the system should **fail fast** at the moment of creation.  
+This leads to **custom exception handling**.
 
 ---
 
-
-## 🛠️ Key Concepts
-- **System.nanoTime()** – High-resolution time measurement for benchmarking  
-- **Performance Benchmarking** – Evaluates execution time of code blocks  
-- **Loop-Based Processing** – Traditional iteration using `for` loops  
-- **Stream-Based Processing** – Declarative iteration using Stream API  
-- **Micro-Measurement Awareness** – Precise timing for small code sections  
-- **Evidence-Driven Optimization** – Decisions based on measured results  
+##  Goal
+Prevent invalid passenger bogies from being added to the train by enforcing capacity rules using a custom exception.
 
 ---
+
+##  Key Concepts
+- **Custom Exception** – User-defined exception for domain-specific errors  
+- **Exception Inheritance** – Extend `Exception` to create checked exceptions  
+- **throw Keyword** – Explicitly raise an exception when rules are violated  
+- **throws Declaration** – Declares that a method/constructor may throw exceptions  
+- **Fail-Fast Validation** – Detect errors early and stop incorrect object creation  
+- **Business Rule Enforcement** – Encapsulates railway constraints in domain objects  
+
+---
+
+## Package Structure

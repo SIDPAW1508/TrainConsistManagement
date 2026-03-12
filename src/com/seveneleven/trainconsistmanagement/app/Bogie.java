@@ -1,19 +1,27 @@
 package com.seveneleven.trainconsistmanagement.app;
 
+import com.seveneleven.trainconsistmanagement.exception.InvalidCapacityException;
+
 public class Bogie {
     private String name;
-    private String type; // Passenger or Goods
+    private String type;
     private int capacity;
 
-    // Constructor for UC7/UC8 (defaults type to Passenger)
-    public Bogie(String name, int capacity) {
+    // Constructor for Passenger bogies (defaults type)
+    public Bogie(String name, int capacity) throws InvalidCapacityException {
+        if (capacity <= 0) {
+            throw new InvalidCapacityException("Invalid capacity for bogie '" + name + "': " + capacity);
+        }
         this.name = name;
-        this.type = "Passenger"; // default type
+        this.type = "Passenger";
         this.capacity = capacity;
     }
 
-    // Constructor for UC9 (explicit type)
-    public Bogie(String name, String type, int capacity) {
+    // Constructor for explicit type (Passenger or Goods)
+    public Bogie(String name, String type, int capacity) throws InvalidCapacityException {
+        if (capacity <= 0) {
+            throw new InvalidCapacityException("Invalid capacity for bogie '" + name + "': " + capacity);
+        }
         this.name = name;
         this.type = type;
         this.capacity = capacity;
@@ -25,6 +33,7 @@ public class Bogie {
 
     @Override
     public String toString() {
-        return name + " (" + type + ") → " + capacity + " units";
+        return name + " (" + type + ") → " + capacity + " seats";
     }
 }
+
