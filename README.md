@@ -1,33 +1,34 @@
-# UC18 – Linear Search for Bogie ID
+# UC19 – Binary Search for Bogie ID
 
-UC18 demonstrates searching for a **specific bogie ID** using the **Linear Search algorithm**.
+UC19 demonstrates efficient searching using the **Binary Search algorithm** on **sorted bogie IDs**.
 
-This approach works even when the **list of bogie IDs is unsorted**, making it simple and flexible for basic search operations.
+Unlike **UC18**, where **Linear Search** checks each element sequentially, **Binary Search** reduces the search range by half in every step, making it **much faster for large datasets**.
 
 ---
 
 ## Flow
 
-1. User provides a **list of bogie IDs**.
+1. User provides a **sorted array of bogie IDs**.
 2. A **bogie ID** is selected as the **search key**.
-3. The system **traverses the array sequentially**.
-4. Each element is compared using `equals()`.
-5. If a **match is found**, the search stops and the **position is displayed**.
-6. If no match exists, the system reports that the **bogie was not found**.
+3. System initializes **low** and **high** indexes.
+4. The **middle element** is calculated and compared with the key.
+5. The **search range is halved** based on the comparison.
+6. The process repeats until the **bogie is found** or the **search range ends**.
 
 ---
 
 ## Concepts Used
 
-- Linear Search Algorithm  
-- Sequential traversal of arrays  
-- String comparison using `equals()`  
-- Early termination when a match is found  
+- Binary Search Algorithm  
+- Divide-and-Conquer strategy  
+- Index-based traversal (`low`, `high`, `mid`)  
+- String comparison using `compareTo()`  
+- Optimized search with **O(log n)** complexity  
 
 ---
 
 ## Purpose
 
-This use case introduces **basic searching logic**, helping build understanding of **how search operations work internally**.
+This use case introduces **efficient searching techniques** and highlights the importance of **sorted data** for optimized lookup operations.
 
-It also prepares the system for **more optimized search techniques in later implementations**.
+Binary Search significantly improves performance when working with **large datasets**, making it a common technique in real-world systems.

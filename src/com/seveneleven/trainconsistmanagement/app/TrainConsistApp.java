@@ -467,6 +467,41 @@ public class TrainConsistApp {
 			System.out.println("Bogie ID not found in the train consist.");
 		}
 		System.out.println("\nUC18 operations completed successfully...");
+		
+		// UC19
+		System.out.println("===========================================");
+		System.out.println("UC19 - Binary Search for Bogie ID (Optimized Searching)");
+		System.out.println("===========================================\n");
+		// Sorted Bogie IDs
+		String[] sortedBogieIds = {"BG101", "BG150", "BG205", "BG310", "BG450"};
+		// Search key
+		String key = "BG205";
+		System.out.println("Sorted Bogie IDs:");
+		System.out.println(java.util.Arrays.toString(sortedBogieIds));
+		System.out.println("\nSearching for Bogie ID: " + key);
+		// Binary Search
+		int low = 0;
+		int high = sortedBogieIds.length - 1;
+		boolean found1 = false;
+		while (low <= high) {
+		   int mid = (low + high) / 2;
+		   int comparison = key.compareTo(sortedBogieIds[mid]);
+		   if (comparison == 0) {
+		       System.out.println("Bogie ID found at position: " + mid);
+		       found1 = true;
+		       break;
+		   }
+		   else if (comparison < 0) {
+		       high = mid - 1;
+		   }
+		   else {
+		       low = mid + 1;
+		   }
+		}
+		if (!found1) {
+		   System.out.println("Bogie ID not found in the train consist.");
+		}
+		System.out.println("\nUC19 operations completed successfully...");
 
 	}
 
