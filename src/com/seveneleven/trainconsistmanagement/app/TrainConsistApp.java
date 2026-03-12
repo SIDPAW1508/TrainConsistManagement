@@ -260,11 +260,11 @@ public class TrainConsistApp {
 
 		if (isSafe) {
 
-			System.out.println("✅ Train formation is SAFE.");
+			System.out.println(" Train formation is SAFE.");
 
 		} else {
 
-			System.out.println("❌ Train formation is NOT SAFE. Invalid cargo assignment detected.");
+			System.out.println(" Train formation is NOT SAFE. Invalid cargo assignment detected.");
 
 		}
 
@@ -502,6 +502,26 @@ public class TrainConsistApp {
 		   System.out.println("Bogie ID not found in the train consist.");
 		}
 		System.out.println("\nUC19 operations completed successfully...");
+		// UC20
+		System.out.println("===========================================");
+		System.out.println("UC20 - Exception Handling During Search Operations");
+		System.out.println("===========================================\n");
+		// Train bogie list (empty to simulate error case)
+		List<String> trainBogieIds = new ArrayList<>();
+		try {
+		   System.out.println("Attempting to search for bogie ID: BG101");
+		   // Defensive check
+		   if (trainBogieIds.isEmpty()) {
+		       throw new IllegalStateException(
+		               "Search operation cannot proceed. No bogies exist in the train consist."
+		       );
+		   }
+		   // (Search logic would normally go here)
+		   System.out.println("Search operation executed successfully.");
+		} catch (IllegalStateException e) {
+		   System.out.println("❌ Error: " + e.getMessage());
+		}
+		System.out.println("\nUC20 operations completed successfully...");
 
 	}
 

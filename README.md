@@ -1,34 +1,37 @@
-# UC19 – Binary Search for Bogie ID
+# UC20 – Exception Handling During Search Operations
 
-UC19 demonstrates efficient searching using the **Binary Search algorithm** on **sorted bogie IDs**.
+UC20 demonstrates **defensive programming** during search operations.
 
-Unlike **UC18**, where **Linear Search** checks each element sequentially, **Binary Search** reduces the search range by half in every step, making it **much faster for large datasets**.
+Before performing a search, the system validates whether any **bogies exist in the train**.  
+If the bogie collection is empty, the system throws an `IllegalStateException` and stops the operation immediately.
 
 ---
 
 ## Flow
 
-1. User provides a **sorted array of bogie IDs**.
-2. A **bogie ID** is selected as the **search key**.
-3. System initializes **low** and **high** indexes.
-4. The **middle element** is calculated and compared with the key.
-5. The **search range is halved** based on the comparison.
-6. The process repeats until the **bogie is found** or the **search range ends**.
+1. User triggers a **search operation**.
+2. System checks if the **bogie collection is empty**.
+3. If empty, an `IllegalStateException` is thrown.
+4. A **meaningful error message** is displayed.
+5. Search logic is **prevented from executing**.
 
 ---
 
 ## Concepts Used
 
-- Binary Search Algorithm  
-- Divide-and-Conquer strategy  
-- Index-based traversal (`low`, `high`, `mid`)  
-- String comparison using `compareTo()`  
-- Optimized search with **O(log n)** complexity  
+- Defensive Programming  
+- Fail-Fast Principle  
+- Runtime Exceptions (`IllegalStateException`)  
+- State validation before processing  
 
 ---
 
 ## Purpose
 
-This use case introduces **efficient searching techniques** and highlights the importance of **sorted data** for optimized lookup operations.
+This use case ensures that **invalid search operations are prevented early**, improving:
 
-Binary Search significantly improves performance when working with **large datasets**, making it a common technique in real-world systems.
+- **System reliability**
+- **Code safety**
+- **Error handling robustness**
+
+By validating system state before execution, the application follows the **fail-fast approach**, avoiding unnecessary processing when the system is not in a valid state.
