@@ -1,37 +1,47 @@
-#  Train Consist Management App – UC14
+# UC15 – Safe Cargo Assignment (try-catch-finally)
 
-##  Use Case 14: Handle Invalid Bogie Capacity (Custom Exception)
+UC15 demonstrates **runtime exception handling** for unsafe cargo assignments in the **Train Consist Management App**.
 
-In **UC13**, the system focused on performance comparison, but it assumed all data was valid.  
-In real railway systems, invalid input can easily enter the system, such as:
-- Negative seat capacity  
-- Zero capacity bogies  
-- Corrupted configuration values  
-
-If such values are allowed:
--  Passenger allocation becomes meaningless  
--  Safety and reporting break down  
--  Bugs propagate silently through later use cases  
-
-Without validation, the train consist may contain bogies that can never carry passengers.  
-Instead of allowing bad data and fixing it later, the system should **fail fast** at the moment of creation.  
-This leads to **custom exception handling**.
+Instead of stopping execution during object creation (as in **UC14**), this use case handles errors that occur during **runtime operations**.
 
 ---
 
-##  Goal
-Prevent invalid passenger bogies from being added to the train by enforcing capacity rules using a custom exception.
+## Key Idea
+
+If **Petroleum** is assigned to a **Rectangular bogie**, the system throws a custom runtime exception called:
+
+`CargoSafetyException`
+
+The exception is handled using **try-catch-finally**, ensuring the application **does not crash** and continues running safely.
 
 ---
 
-##  Key Concepts
-- **Custom Exception** – User-defined exception for domain-specific errors  
-- **Exception Inheritance** – Extend `Exception` to create checked exceptions  
-- **throw Keyword** – Explicitly raise an exception when rules are violated  
-- **throws Declaration** – Declares that a method/constructor may throw exceptions  
-- **Fail-Fast Validation** – Detect errors early and stop incorrect object creation  
-- **Business Rule Enforcement** – Encapsulates railway constraints in domain objects  
+## Flow
+
+1. User attempts to assign cargo to a **goods bogie**.
+2. System checks **shape and cargo compatibility**.
+3. If unsafe, a **CargoSafetyException** is thrown.
+4. The exception is **caught** and an **error message** is displayed.
+5. The **finally block** runs logging or cleanup operations.
+6. The **program continues execution**.
 
 ---
 
-## Package Structure
+## Concepts Used
+
+- Custom Runtime Exception
+- `throw` keyword
+- `try-catch-finally`
+- Runtime validation
+
+---
+
+## Purpose
+
+This mechanism ensures:
+
+- **Safe cargo handling**
+- **Stable program execution**
+- **Proper runtime error management**
+
+Even if an unsafe cargo assignment occurs, the system **handles the error gracefully without stopping the application**.

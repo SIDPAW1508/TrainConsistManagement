@@ -3,6 +3,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
+import com.seveneleven.trainconsistmanagement.exception.CargoSafetyException;
 import com.seveneleven.trainconsistmanagement.exception.InvalidCapacityException;
 public class TrainConsistApp {
    public static void main(String[] args) {
@@ -363,6 +365,24 @@ public class TrainConsistApp {
        bogiesException.forEach(System.out::println);
 
        System.out.println("\nUC14 operations completed successfully...");
+    // UC15
+       System.out.println("===========================================");
+       System.out.println("UC15 - Safe Cargo Assignment Using try-catch-finally");
+       System.out.println("===========================================\n");
+       GoodsBogie goodsBogie = new GoodsBogie("Rectangular", "Coal");
+       System.out.println("Initial Bogie State:");
+       System.out.println(goodsBogie);
+       try {
+          System.out.println("\nAttempting to assign cargo: Petroleum");
+          goodsBogie.assignCargo("Petroleum");
+       } catch (CargoSafetyException e) {
+          System.out.println("❌ Error: " + e.getMessage());
+       } finally {
+          System.out.println("Finalizing cargo assignment operation...");
+       }
+       System.out.println("\nFinal Bogie State:");
+       System.out.println(goodsBogie);
+       System.out.println("\nUC15 operations completed successfully...");
 
    }
 
@@ -382,5 +402,6 @@ public class TrainConsistApp {
        }
 
    }
+   
 
 }
