@@ -1,38 +1,30 @@
-# UC16 – Sort Passenger Bogies by Capacity (Bubble Sort)
+# UC17 – Sort Bogie Names Using Arrays.sort()
 
-UC16 demonstrates **manual sorting** using the **Bubble Sort algorithm** instead of built-in Java methods like `Collections.sort()` or `Arrays.sort()`.
+UC17 demonstrates sorting **bogie type names alphabetically** using Java’s built-in `Arrays.sort()` method.
 
-This use case helps understand how sorting works internally by **comparing and swapping adjacent values** until the array becomes sorted.
+Unlike **UC16**, where **Bubble Sort** was implemented manually, this use case uses Java’s **optimized library sorting algorithm** to make the code **faster, simpler, and more maintainable**.
 
 ---
 
 ## Flow
 
-1. User provides **passenger bogie capacities**.
-2. System stores capacities in an **array**.
-3. **Adjacent elements are compared**.
-4. If elements are **out of order**, values are **swapped**.
-5. **Multiple passes** continue until the array becomes sorted.
-6. **Sorted capacities** are displayed.
+1. User provides an **array of bogie type names**.
+2. System calls `Arrays.sort()` on the array.
+3. Java internally **sorts the values alphabetically**.
+4. Sorted bogie names are displayed using `Arrays.toString()`.
+5. Program continues execution.
 
 ---
 
 ## Concepts Used
 
-- Bubble Sort Algorithm  
-- Nested Loops  
-- Array Manipulation  
-- Swapping Logic  
-- Algorithm Fundamentals  
+- `Arrays.sort()` (built-in sorting utility)
+- Natural ordering of **Strings** (alphabetical sorting)
+- **Standard library optimization**
+- **Cleaner and more readable code**
 
 ---
 
 ## Purpose
 
-This use case helps build:
-
-- **Algorithmic thinking**
-- Understanding of **sorting mechanics**
-- Knowledge of how **sorting works internally**
-
-before using high-level Java sorting utilities.
+This use case demonstrates how **production systems rely on optimized library methods** instead of implementing manual sorting algorithms for common operations like sorting.

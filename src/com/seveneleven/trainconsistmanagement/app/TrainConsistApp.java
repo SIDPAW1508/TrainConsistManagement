@@ -411,6 +411,38 @@ public class TrainConsistApp {
           System.out.print(c + " ");
        }
        System.out.println("\n\nUC16 operations completed successfully...");
+    // UC17
+
+       System.out.println("===========================================");
+
+       System.out.println("UC17 - Sort Bogie Names Using Arrays.sort()");
+
+       System.out.println("===========================================\n");
+
+       // Bogie type names
+
+       String[] bogieNames = {"Sleeper", "AC Chair", "First Class", "Cargo", "Guard"};
+
+       // Display original array
+
+       System.out.println("Original Bogie Names:");
+
+       System.out.println(java.util.Arrays.toString(bogieNames));
+
+       System.out.println();
+
+       // Sorting using built-in method
+
+       java.util.Arrays.sort(bogieNames);
+
+       // Display sorted result
+
+       System.out.println("Sorted Bogie Names (Alphabetical):");
+
+       System.out.println(java.util.Arrays.toString(bogieNames));
+
+       System.out.println("\nUC17 operations completed successfully...");
+        
 
    }
 
